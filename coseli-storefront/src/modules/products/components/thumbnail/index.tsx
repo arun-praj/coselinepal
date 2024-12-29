@@ -17,7 +17,7 @@ type ThumbnailProps = {
 const Thumbnail: React.FC<ThumbnailProps> = ({
   thumbnail,
   images,
-  size = "small",
+  size = "square",
   isFeatured,
   className,
   "data-testid": dataTestid,

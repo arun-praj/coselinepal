@@ -21,10 +21,17 @@ export default async function ProductRail({
       fields: "*variants.calculated_price",
     },
   })
-
-  if (!pricedProducts) {
-    return null
-  }
+  const ans = await listProducts({
+    regionId: region.id,
+    queryParams: {
+      collection_id: collection.id,
+      fields: "*variants.calculated_price",
+    },
+  })
+  console.log("AND", ans)
+  //   if (!pricedProducts) {
+  //     return null
+  //   }
 
   return (
     <div className="content-container py-12 small:py-24">

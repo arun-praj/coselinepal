@@ -212,6 +212,8 @@ const KhaltiPaymentButton = ({ notReady }: { notReady: boolean }) => {
   }
   const redirectToKhalti = async () => {
     const cart = await retrieveCart()
+    console.log(cart)
+
     const paymentUrl = cart?.payment_collection?.payment_sessions?.[0]?.data
       ?.payment_url as string | undefined
     if (paymentUrl) {

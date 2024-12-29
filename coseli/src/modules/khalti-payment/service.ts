@@ -42,7 +42,6 @@ class KhaltiClient {
 		console.log("Khalti: ", context);
 		try {
 			const { amount, context: customerDetails } = context;
-			console.log(customerDetails);
 
 			const res = await fetch(`${this.getURL()}/epayment/initiate/`, {
 				method: "POST",
@@ -50,7 +49,10 @@ class KhaltiClient {
 				body: JSON.stringify({
 					return_url: process.env.KHALTI_RETURN_URL,
 					website_url: process.env.KHALTI_WEBSITE_URL,
-					amount: amount * 132,
+					amount:
+						process.env.NODE_ENV != "production"
+							? 1000
+							: amount * 132,
 					purchase_order_id: customerDetails?.session_id,
 					purchase_order_name: customerDetails?.session_id,
 					customer_info: context.customerDetails?.session_id,

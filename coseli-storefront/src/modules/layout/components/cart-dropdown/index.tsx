@@ -75,7 +75,7 @@ const CartDropdown = ({
 
   return (
     <div
-      className="h-full z-50"
+      className="h-full z-10"
       onMouseEnter={openAndCancel}
       onMouseLeave={close}
     >
@@ -85,7 +85,67 @@ const CartDropdown = ({
             className="hover:text-ui-fg-base"
             href="/cart"
             data-testid="nav-cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >
+            {totalItems > 0 ? (
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 23H1V6H19V23Z"
+                  stroke="#111111"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
+                  strokeLinecap="square"
+                ></path>
+                <path
+                  d="M6 9V5C6 2.8 7.8 1 10 1C12.2 1 14 2.8 14 5V9"
+                  stroke="#111111"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
+                  strokeLinecap="square"
+                ></path>
+                <circle cx="18" cy="18" r="7" fill="#2374ab" />
+                <text
+                  x="18"
+                  y="22"
+                  textAnchor="middle"
+                  fill="red"
+                  stroke="white"
+                  fontSize="9"
+                  fontWeight="200"
+                >
+                  {totalItems}
+                </text>
+              </svg>
+            ) : (
+              <svg
+                width="20"
+                height="24"
+                viewBox="0 0 20 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 23H1V6H19V23Z"
+                  stroke="#111111"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
+                  strokeLinecap="square"
+                ></path>
+                <path
+                  d="M6 9V5C6 2.8 7.8 1 10 1C12.2 1 14 2.8 14 5V9"
+                  stroke="#111111"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
+                  strokeLinecap="square"
+                ></path>
+              </svg>
+            )}
+          </LocalizedClientLink>
         </PopoverButton>
         <Transition
           show={cartDropdownOpen}

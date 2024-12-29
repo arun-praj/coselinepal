@@ -4,6 +4,7 @@ import { CreditCard } from "@medusajs/icons"
 import Ideal from "@modules/common/icons/ideal"
 import Bancontact from "@modules/common/icons/bancontact"
 import PayPal from "@modules/common/icons/paypal"
+import Khalti from "@modules/common/icons/khalti"
 
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
@@ -24,7 +25,7 @@ export const paymentInfoMap: Record<
   },
   "pp_khalti-payment_khalti-payment": {
     title: " Khalti",
-    icon: <Ideal />,
+    icon: <Khalti />,
   },
   pp_paypal_paypal: {
     title: "PayPal",

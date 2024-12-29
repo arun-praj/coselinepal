@@ -9,6 +9,8 @@ export default async function cartCraetedHandler({
 	const notificationModuleService: INotificationModuleService =
 		container.resolve(Modules.NOTIFICATION);
 	console.error(data);
+
+	// @ts-ignore
 	await notificationModuleService.createNotifications({
 		to: "arunkp1122@gmail.com",
 		from: "no-reply@coselinepal.com", // Optional var, verified sender required

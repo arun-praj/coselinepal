@@ -30,12 +30,12 @@ module.exports = defineConfig({
 				],
 			},
 		},
-		// Sendgrid notification provider
+		// Notification provider
 		{
 			resolve: "@medusajs/medusa/notification",
 			options: {
 				providers: [
-					// ...
+					// Sendgrid
 					{
 						resolve: "@medusajs/medusa/notification-sendgrid",
 						id: "sendgrid",
@@ -45,9 +45,31 @@ module.exports = defineConfig({
 							from: process.env.SENDGRID_FROM,
 						},
 					},
+					{
+						resolve: "@medusajs/medusa/notification-local",
+						id: "local",
+						options: {
+							name: "Local Notification Provider",
+							channels: ["feed"],
+						},
+					},
+
+					//custom notification provider
+					// {
+					// 	resolve: "./src/modules/my-notification",
+					// 	id: "my-notification",
+					// 	options: {
+					// 		channels: ["feed"],
+					// 		api_key:
+					// 			process.env.MY_NOTIFICATION_API ||
+					// 			"asdfasdfasdfasdf",
+					// 		// provider options...
+					// 	},
+					// },
 				],
 			},
 		},
+
 		// local storage, uploaded to upload folder
 		{
 			resolve: "@medusajs/medusa/file",
