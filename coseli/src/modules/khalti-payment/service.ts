@@ -39,7 +39,6 @@ class KhaltiClient {
 		);
 		myHeaders.append("Content-Type", "application/json");
 
-		console.log("Khalti: ", context);
 		try {
 			const { amount, context: customerDetails } = context;
 
@@ -49,10 +48,9 @@ class KhaltiClient {
 				body: JSON.stringify({
 					return_url: process.env.KHALTI_RETURN_URL,
 					website_url: process.env.KHALTI_WEBSITE_URL,
-					amount:
-						process.env.NODE_ENV != "production"
-							? 1000
-							: amount * 132,
+					amount: process.env.KHALTI_SECRET_KEY?.startsWith("54ab93b")
+						? 1000
+						: amount * 100, // In developement,10<= amount<=1000 and in production amount should be in paisa.
 					purchase_order_id: customerDetails?.session_id,
 					purchase_order_name: customerDetails?.session_id,
 					customer_info: context.customerDetails?.session_id,
@@ -99,14 +97,18 @@ class KhaltiPaymentProviderService extends AbstractPaymentProvider<Options> {
 		super(options);
 		this.client = new KhaltiClient();
 	}
-	// static validateOptions(options: Record<any, any>) {
-	// 	if (!options.apiKey) {
-	// 		throw new MedusaError(
-	// 			MedusaError.Types.INVALID_DATA,
-	// 			"API key is required in the provider's options."
-	// 		);
-	// 	}
-	// }
+	static validateOptions(options: Record<any, any>) {
+		if (
+			!options.khalti_secret_key &&
+			!options.khalti_return_url &&
+			!options.khalti_website_url
+		) {
+			throw new MedusaError(
+				MedusaError.Types.INVALID_DATA,
+				"Khalti secret key, return url or website url is required in the provider's options."
+			);
+		}
+	}
 
 	// Initiate payment: This method is called when a payment session is created. It should return a session object that can be used to redirect the customer to the payment provider's checkout page.
 	async initiatePayment(
@@ -135,10 +137,8 @@ class KhaltiPaymentProviderService extends AbstractPaymentProvider<Options> {
 		paymentSessionData: Record<string, unknown>
 	): Promise<PaymentSessionStatus> {
 		const externalId = paymentSessionData.id;
-		console.log(externalId);
 		try {
 			const res = await this.client.getStatus(externalId);
-			console.error("getPaymentStatus", res);
 
 			switch (res.status) {
 				case "Completed":
@@ -161,7 +161,11 @@ class KhaltiPaymentProviderService extends AbstractPaymentProvider<Options> {
 	): Promise<PaymentProviderError | PaymentProviderSessionResponse["data"]> {
 		try {
 			const status = await this.getPaymentStatus(paymentData);
-			console.error("Authorize called----", status);
+			if (status === "captured") {
+				// I want to store the transation id as well
+				const res = await this.client.getStatus(paymentData.id);
+				console.error("hehehehehehe", res.json());
+			}
 
 			return {
 				status: status,
@@ -183,11 +187,8 @@ class KhaltiPaymentProviderService extends AbstractPaymentProvider<Options> {
 				data: PaymentProviderSessionResponse["data"];
 		  }
 	> {
-		console.error("Authorize called----");
-
 		try {
 			const status = await this.getPaymentStatus(paymentSessionData);
-			console.error("Authorize called----", status);
 
 			return {
 				status: status,
