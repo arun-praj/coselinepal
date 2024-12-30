@@ -33,7 +33,9 @@ module.exports = defineConfig({
 						resolve: "./src/modules/khalti-payment",
 						id: "khalti-payment",
 						options: {
-							// provider options...
+                            khalti_secret_key: process.env.KHALTI_SECRET_KEY,
+							khalti_return_url: process.env.KHALTI_RETURN_URL,
+							khalti_website_url: process.env.KHALTI_WEBSITE_URL,
 						},
 					},
 				],
