@@ -36,12 +36,12 @@ const Hero = () => {
           style={{
             color: "white",
             textShadow: `
-                  0 0 5px rgba(0, 0, 0, 0.2),
-                  0 0 10px rgba(0, 0, 0, 0.3),
-                  0 0 15px rgba(0, 0, 0, 0.4),
-                  0 0 200px rgba(0, 0, 0, 0.5),
-                  0 0 300px rgba(0, 0, 0, 0.6),
-                  0 0 400px rgba(0, 0, 0, 0.7)
+                0 0 50px rgba(0, 0, 0, 0.2),
+                0 0 60px rgba(0, 0, 0, 0.3),
+                0 0 70px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(0, 0, 0, 0.6),
+                0 0 100px rgba(0, 0, 0, 0.7)
                 `,
           }}
         >
