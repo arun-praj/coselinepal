@@ -1,6 +1,10 @@
 import React, { Suspense } from "react"
 
 import ImageGallery from "@modules/products/components/image-gallery"
+import ImageThumbnail from "@modules/products/components/image-thumbnail"
+
+import ProductImage from "./product-image"
+
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
 import ProductTabs from "@modules/products/components/product-tabs"
@@ -32,15 +36,24 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="content-container flex flex-col small:flex-row small:items-start py-6 relative"
         data-testid="product-container"
       >
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
+        {/* <div className="flex flex-col small:hidden small:top-2 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
           <ProductInfo product={product} />
           <ProductTabs product={product} />
+        </div> */}
+
+        <ProductImage product={product} />
+        {/* <div className=" block w-[10%] relative ">
+          <ImageThumbnail images={product?.images || []} />
         </div>
         <div className="block w-full relative">
           <ImageGallery images={product?.images || []} />
-        </div>
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
+        </div> */}
+        <div className="flex flex-col  small:top-2 small:py-0 small:max-w-[35%] w-full py-8 gap-y-12">
           <ProductOnboardingCta />
+          <div className=" small:flex small:flex-col  small:top-2 small:py-0 w-full py-8 gap-y-6">
+            <ProductInfo product={product} />
+            <ProductTabs product={product} />
+          </div>
           <Suspense
             fallback={
               <ProductActions
@@ -55,7 +68,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         </div>
       </div>
       <div
-        className="content-container my-16 small:my-32"
+        className="content-container my-16 small:my-16"
         data-testid="related-products-container"
       >
         <Suspense fallback={<SkeletonRelatedProducts />}>
