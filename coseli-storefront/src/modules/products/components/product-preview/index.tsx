@@ -5,6 +5,7 @@ import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
+import { Transition } from "@headlessui/react"
 
 export default async function ProductPreview({
   product,
@@ -30,7 +31,10 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <div data-testid="product-wrapper">
+      <div
+        data-testid="product-wrapper"
+        className=" hover:scale-105 ease-linear"
+      >
         <Thumbnail
           thumbnail={product.thumbnail}
           images={product.images}
