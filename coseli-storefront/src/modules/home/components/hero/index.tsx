@@ -73,7 +73,7 @@ const Hero = () => {
           </Link> */}
             <Link
               href="/store"
-              className="rounded-sm bg-white  px-6 py-[14px] text-base uppercase font-normal md:min-w-[170px] w-[170px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black-600"
+              className="rounded-sm bg-white  px-6 py-[14px] text-base font-normal md:min-w-[170px] w-[170px] text-black shadow-sm hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black-600"
             >
               Shop now
             </Link>
