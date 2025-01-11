@@ -19,6 +19,7 @@ export default async function ProductRail({
     queryParams: {
       collection_id: collection.id,
       fields: "*variants.calculated_price",
+      limit: 4,
     },
   })
   const ans = await listProducts({
@@ -41,7 +42,7 @@ export default async function ProductRail({
           View all
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
+      <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-6 gap-y-20 small:gap-y-20">
         {pricedProducts &&
           pricedProducts.map((product) => (
             <li key={product.id}>
