@@ -128,7 +128,8 @@ export default function ProductActions({
                       updateOption={setOptionValue}
                       title={option.title ?? ""}
                       data-testid="product-options"
-                      disabled={!!disabled || isAdding}
+                      disabled={!!disabled || isAdding || !inStock}
+                      //   disabled={true}
                     />
                   </div>
                 )
@@ -150,7 +151,7 @@ export default function ProductActions({
             !isValidVariant
           }
           variant="primary"
-          className="w-full h-10"
+          className="w-full h-10 rounded-none"
           isLoading={isAdding}
           data-testid="add-product-button"
         >
@@ -160,7 +161,7 @@ export default function ProductActions({
             ? "Out of stock"
             : "Add to cart"}
         </Button>
-        <MobileActions
+        {/* <MobileActions
           product={product}
           variant={selectedVariant}
           options={options}
@@ -170,7 +171,7 @@ export default function ProductActions({
           isAdding={isAdding}
           show={!inView}
           optionsDisabled={!!disabled || isAdding}
-        />
+        /> */}
       </div>
     </>
   )
