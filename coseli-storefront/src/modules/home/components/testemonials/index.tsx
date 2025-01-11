@@ -25,7 +25,7 @@ export default function Testimonial() {
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
               <Image
-                className="w-6 h-6 rounded-full "
+                className="w-6 h-6 rounded-full pointer-events-none	 "
                 src="/sushant.png"
                 height={30}
                 width={30}

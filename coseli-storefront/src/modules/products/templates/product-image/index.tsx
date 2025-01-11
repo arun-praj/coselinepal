@@ -38,7 +38,7 @@ function ProductImage({ product }: ProductTemplateProps) {
         />
       </div>
 
-      <div className="relative block w-full small:mx-5  aspect-square ">
+      <div className="relative block w-full small:mx-12 aspect-square pointer-events-none ">
         {seletedImage?.url && seletedImage?.id && (
           <Image
             src={seletedImage?.url}

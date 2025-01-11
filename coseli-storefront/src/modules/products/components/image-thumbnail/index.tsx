@@ -47,7 +47,7 @@ const ImageThumbnail = ({
                 <Image
                   src={image.url}
                   priority={index <= 2 ? true : false}
-                  className="absolute inset-0"
+                  className="absolute inset-0 pointer-events-none"
                   alt={`Product image ${index + 1}`}
                   fill
                   sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 180px, 100px"

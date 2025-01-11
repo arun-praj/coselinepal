@@ -23,6 +23,7 @@ export default async function Footer() {
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
               <Image
+                className="pointer-events-none	"
                 src={"/logo.png"}
                 alt={"Website logo"}
                 height={"140"}

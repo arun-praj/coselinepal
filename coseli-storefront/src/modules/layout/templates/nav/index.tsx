@@ -25,6 +25,7 @@ export default async function Nav() {
             >
               <Image
                 src={"/logo.png"}
+                className="pointer-events-none	"
                 alt={"Website logo"}
                 height={"80"}
                 width={"120"}

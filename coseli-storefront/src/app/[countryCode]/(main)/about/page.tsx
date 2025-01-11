@@ -171,7 +171,7 @@ export default async function AboutPage() {
               src={"/black.jpg"}
               alt="Shoes"
               fill={true}
-              className=" aspect-square"
+              className=" aspect-square pointer-events-none	"
             />
           </div>
         </div>
