@@ -54,7 +54,7 @@ export default async function Nav() {
 
                     return (
                       <li
-                        className="flex flex-col gap-4 text-ui-fg-subtle txt-small lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900"
+                        className="flex flex-col gap-4 text-ui-fg-subtle text-base lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900"
                         key={c.id}
                       >
                         <LocalizedClientLink
@@ -100,8 +100,8 @@ export default async function Nav() {
                 data-testid="nav-account-link"
               >
                 <svg
-                  width="20"
-                  height="20"
+                  width="23"
+                  height="23"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
