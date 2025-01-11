@@ -137,125 +137,129 @@ export default async function AboutPage() {
     //     </div>
     //   </footer>
     // </div>
-    <div className="w-full bg-[url('/bg1.png')]">
-      {/* Header Section */}
-      <div
-        className="bg-cover bg-center"
-        style={{ backgroundImage: 'url("/placeholder-image.jpg")' }}
-      >
-        <div className="flex flex-col items-start justify-center h-[30vh] px-12 text-black bg-[url('/bg2.png')]">
-          <h1 className="text-4xl font-bold">
-            Our Philosophy Is Simple. You Deserve It All.
-          </h1>
+    // <div className="w-full bg-[url('/bg1.png')]">
+    <div>
+      <div className="w-full content-container ">
+        {/* Header Section */}
+        <div
+          className="bg-cover bg-center"
+          // style={{ backgroundImage: 'url("/placeholder-image.jpg")' }}
+        >
+          {/* <div className="flex flex-col items-start justify-center h-[30vh] px-12 text-black bg-[url('/bg2.png')]"> */}
+          <div className="flex flex-col items-start justify-center h-[30vh]  text-black">
+            <h1 className="text-4xl font-bold">
+              Our Philosophy Is Simple. You Deserve It All.
+            </h1>
+          </div>
         </div>
-      </div>
 
-      {/* Features Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-4">
-        <div className=" flex flex-col  justify-center text-center">
-          <h2 className="text-2xl font-bold">
-            Comfort, Durability, Versatility & Honest Pricing.
-          </h2>
-          <p className="text-gray-600 mt-2">
-            Comfort, durability, versatility, and honest pricing are the core
-            values that drive our brand. We strive to provide our customers with
-            premium quality products that can withstand the rigors of everyday
-            life.
-          </p>
-        </div>
-        <div className="relative w-full aspect-square">
-          <Image
-            src={"/black.jpg"}
-            alt="Shoes"
-            fill={true}
-            className=" aspect-square"
-          />
-        </div>
-      </div>
-
-      {/* Quality Commitment Section */}
-      <div className="bg-gray-50 bg-opacity-60 ">
+        {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-4">
-          <div className="flex flex-col relative items-center justify-center h-[500px]">
-            <video
-              autoPlay
-              playsInline
-              loop
-              muted
-              src={"/factory.webm"}
-              className="h-full w-full absolute z-9 aspect-square"
-              style={{ objectFit: "cover" }}
-            ></video>
-          </div>
           <div className=" flex flex-col  justify-center text-center">
-            <h2 className="text-2xl font-bold mb-4">Commitment to Quality</h2>
-
-            <p className="text-gray-600">
-              We are dedicated to providing our customers with the highest
-              quality products. Our team works tirelessly to ensure that every
-              pair of shoes meets our stringent standards for durability,
-              comfort, and style.
+            <h2 className="text-2xl font-bold">
+              Comfort, Durability, Versatility & Honest Pricing.
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Comfort, durability, versatility, and honest pricing are the core
+              values that drive our brand. We strive to provide our customers
+              with premium quality products that can withstand the rigors of
+              everyday life.
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* Partners Section */}
-      <div className="px-12 py-8 bg-opacity-60">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className=" flex flex-col  justify-center text-center">
-            <h2 className="text-2xl font-bold mb-4">World-Class Partners</h2>
-
-            <p className="text-gray-600">
-              We have carefully selected our partners to ensure that they share
-              our commitment to quality and customer satisfaction. Together, we
-              work to deliver the best possible products and services to our
-              customers.
-            </p>
-          </div>
-          <div className="flex flex-col relative items-center justify-center h-[500px]">
-            <video
-              autoPlay
-              playsInline
-              loop
-              muted
-              src={"/coming_soon.webm"}
-              className="h-full w-full absolute z-9 aspect-square"
-              style={{ objectFit: "cover" }}
-            ></video>
+          <div className="relative w-full aspect-square">
+            <Image
+              src={"/black.jpg"}
+              alt="Shoes"
+              fill={true}
+              className=" aspect-square"
+            />
           </div>
         </div>
-      </div>
 
-      {/* Better Experience Section */}
-      <div className=" px-12 py-8 bg-opacity-60">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex flex-col relative items-center justify-center h-[500px]">
-            <video
-              autoPlay
-              playsInline
-              loop
-              muted
-              src={"/hero.webm"}
-              className="h-full w-full absolute z-9 aspect-square"
-              style={{ objectFit: "cover" }}
-            ></video>
-          </div>
-          <div className=" flex flex-col  justify-center text-center">
-            <h2 className="text-2xl font-bold mb-4">A Better Experience</h2>
+        {/* Quality Commitment Section */}
+        <div className="bg-gray-50 bg-opacity-60 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-4">
+            <div className="flex flex-col relative items-center justify-center h-[500px]">
+              <video
+                autoPlay
+                playsInline
+                loop
+                muted
+                src={"/factory.webm"}
+                className="h-full w-full absolute z-9 aspect-square"
+                style={{ objectFit: "cover" }}
+              ></video>
+            </div>
+            <div className=" flex flex-col  justify-center text-center">
+              <h2 className="text-2xl font-bold mb-4">Commitment to Quality</h2>
 
-            <p className="text-gray-600">
-              We are committed to providing our customers with a better
-              experience, from the moment they step into our store to the day
-              they receive their order. Our team is dedicated to ensuring that
-              every interaction is seamless and satisfying.
-            </p>
+              <p className="text-gray-600">
+                We are dedicated to providing our customers with the highest
+                quality products. Our team works tirelessly to ensure that every
+                pair of shoes meets our stringent standards for durability,
+                comfort, and style.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Footer Section */}
-      <div className="bg-black text-white px-12 py-20 text-center flex items-center flex-col">
+        {/* Partners Section */}
+        <div className="px-12 py-8 bg-opacity-60">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className=" flex flex-col  justify-center text-center">
+              <h2 className="text-2xl font-bold mb-4">World-Class Partners</h2>
+
+              <p className="text-gray-600">
+                We have carefully selected our partners to ensure that they
+                share our commitment to quality and customer satisfaction.
+                Together, we work to deliver the best possible products and
+                services to our customers.
+              </p>
+            </div>
+            <div className="flex flex-col relative items-center justify-center h-[500px]">
+              <video
+                autoPlay
+                playsInline
+                loop
+                muted
+                src={"/coming_soon.webm"}
+                className="h-full w-full absolute z-9 aspect-square"
+                style={{ objectFit: "cover" }}
+              ></video>
+            </div>
+          </div>
+        </div>
+
+        {/* Better Experience Section */}
+        <div className=" px-12 py-8 bg-opacity-60">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex flex-col relative items-center justify-center h-[500px]">
+              <video
+                autoPlay
+                playsInline
+                loop
+                muted
+                src={"/hero.webm"}
+                className="h-full w-full absolute z-9 aspect-square"
+                style={{ objectFit: "cover" }}
+              ></video>
+            </div>
+            <div className=" flex flex-col  justify-center text-center">
+              <h2 className="text-2xl font-bold mb-4">A Better Experience</h2>
+
+              <p className="text-gray-600">
+                We are committed to providing our customers with a better
+                experience, from the moment they step into our store to the day
+                they receive their order. Our team is dedicated to ensuring that
+                every interaction is seamless and satisfying.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Section */}
+      </div>
+      <div className="bg-black text-white px-12 py-28 mt-10 text-center flex items-center flex-col">
         <h2 className="text-2xl font-bold mb-4 text-center  max-w-md">
           For Wherever The Day Takes You
         </h2>
