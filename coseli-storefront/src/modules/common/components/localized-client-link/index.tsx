@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useParams } from "next/navigation"
+import { useParams, usePathname } from "next/navigation"
 import React from "react"
+import { clx } from "@medusajs/ui"
 
 /**
  * Use this component to create a Next.js `<Link />` that persists the current country code in the url,
@@ -21,11 +22,23 @@ const LocalizedClientLink = ({
   [x: string]: any
 }) => {
   const { countryCode } = useParams()
-
+  const pathname = usePathname()
   return (
-    <Link href={`/${countryCode}${href}`} {...props}>
-      {children}
-    </Link>
+    <>
+      {pathname === `/${countryCode}${href}` ? (
+        <Link
+          href={`/${countryCode}${href}`}
+          {...props}
+          className={props.className + " font-semibold"}
+        >
+          {children}
+        </Link>
+      ) : (
+        <Link href={`/${countryCode}${href}`} {...props}>
+          {children}
+        </Link>
+      )}
+    </>
   )
 }
 
