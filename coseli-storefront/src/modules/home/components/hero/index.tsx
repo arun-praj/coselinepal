@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Hero = () => {
   return (
-    <div className="relative h-[75vh] w-full border-b border-ui-border-base  overflow-hidden">
+    <div className="relative h-[calc(100vh-80px)] w-full border-b border-ui-border-base  overflow-hidden">
       <video
         autoPlay
         playsInline
