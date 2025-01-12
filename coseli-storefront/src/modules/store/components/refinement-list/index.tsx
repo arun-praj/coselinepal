@@ -2,16 +2,19 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
-
+import { Accordion, AccordionItem } from "@nextui-org/accordion"
 import SortProducts, { SortOptions } from "./sort-products"
 
 type RefinementListProps = {
   sortBy: SortOptions
   search?: boolean
-  'data-testid'?: string
+  "data-testid"?: string
 }
 
-const RefinementList = ({ sortBy, 'data-testid': dataTestId }: RefinementListProps) => {
+const RefinementList = ({
+  sortBy,
+  "data-testid": dataTestId,
+}: RefinementListProps) => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -30,10 +33,25 @@ const RefinementList = ({ sortBy, 'data-testid': dataTestId }: RefinementListPro
     const query = createQueryString(name, value)
     router.push(`${pathname}?${query}`)
   }
-
+  const defaultContent = (
+    <div className="flex small:flex-col gap-12 small:px-0 pl-6  small:ml-[1.675rem]">
+      <SortProducts
+        sortBy={sortBy}
+        setQueryParams={setQueryParams}
+        data-testid={dataTestId}
+      />
+    </div>
+  )
   return (
-    <div className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[250px] small:ml-[1.675rem]">
-      <SortProducts sortBy={sortBy} setQueryParams={setQueryParams} data-testid={dataTestId} />
+    <div className="w-[300px] pr-6">
+      <Accordion selectionMode="multiple">
+        <AccordionItem key="1" aria-label="Accordion 1" title="Collection">
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key="2" aria-label="Accordion 2" title="Filters">
+          {defaultContent}
+        </AccordionItem>
+      </Accordion>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { listCategories } from "@lib/data/categories"
 import { listCollections } from "@lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
 import Image from "next/image"
+import { myFont } from "app/layout"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
@@ -33,7 +34,7 @@ export default async function Footer() {
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
-              <div className="flex flex-col gap-y-3">
+              <div className="flex flex-col gap-y-3 ">
                 <span className="txt-small-plus txt-ui-fg-base">
                   Categories
                 </span>
@@ -61,6 +62,8 @@ export default async function Footer() {
                         <LocalizedClientLink
                           className={clx(
                             "hover:text-ui-fg-base",
+                            myFont.className,
+
                             children && "txt-small-plus"
                           )}
                           href={`/categories/${c.handle}`}

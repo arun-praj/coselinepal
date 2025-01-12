@@ -1,7 +1,7 @@
 import { HttpTypes } from "@medusajs/types"
-import { Heading, Text } from "@medusajs/ui"
+import { clx, Heading, Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-
+import { myFont } from "app/layout"
 type ProductInfoProps = {
   product: HttpTypes.StoreProduct
 }
@@ -20,14 +20,21 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         )}
         <Heading
           level="h2"
-          className="text-3xl leading-10 text-ui-fg-base"
+          className={clx(
+            "text-3xl leading-10 text-ui-fg-base ",
+            myFont.className
+          )}
           data-testid="product-title"
         >
           {product.title}
         </Heading>
 
         <Text
-          className="text-medium text-ui-fg-subtle whitespace-pre-line"
+          className={clx(
+            myFont.className,
+
+            "text-medium text-ui-fg-subtle whitespace-pre-line"
+          )}
           data-testid="product-description"
         >
           {product.description}

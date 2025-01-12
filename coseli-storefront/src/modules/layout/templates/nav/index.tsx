@@ -3,6 +3,7 @@ import Image from "next/image"
 import { listRegions } from "@lib/data/regions"
 import { listCategories } from "@lib/data/categories"
 import { clx } from "@medusajs/ui"
+import { myFont } from "app/layout"
 
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -61,6 +62,7 @@ export default async function Nav() {
                         <LocalizedClientLink
                           className={clx(
                             "hover:text-ui-fg-base ",
+                            myFont.className,
                             children &&
                               " md:px-6 py-2 items-center text-gray-900 hover:text-gray-950 text-md mt-4"
                           )}

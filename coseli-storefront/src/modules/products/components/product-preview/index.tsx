@@ -1,4 +1,4 @@
-import { Text } from "@medusajs/ui"
+import { clx, Text } from "@medusajs/ui"
 import { listProducts } from "@lib/data/products"
 import { getProductPrice } from "@lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
@@ -6,6 +6,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
 import { Transition } from "@headlessui/react"
+import { myFont } from "app/layout"
 
 export default async function ProductPreview({
   product,
@@ -41,8 +42,13 @@ export default async function ProductPreview({
           size="square"
           isFeatured={isFeatured}
         />
-        <div className="flex flex-col lg:flex-row txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle" data-testid="product-title">
+        <div
+          className={clx(
+            myFont.className,
+            "flex flex-col lg:flex-row txt-compact-medium mt-4 justify-between"
+          )}
+        >
+          <Text className={"text-ui-fg-subtle"} data-testid="product-title">
             {product.title}
           </Text>
           <div className="flex items-center gap-x-2">
