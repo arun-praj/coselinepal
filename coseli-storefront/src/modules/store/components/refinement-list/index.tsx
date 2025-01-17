@@ -42,10 +42,30 @@ const RefinementList = ({
       />
     </div>
   )
+  const itemClasses = {
+    base: "py-0 w-full",
+    title: "font-semibold text-xs uppercase tracking-widest",
+    trigger:
+      "px-2 py-0 data-[hover=true]:bg-default-100 rounded-lg h-14 flex items-center font-bold",
+    indicator: "text-medium font-bold",
+    content: "text-small px-2",
+  }
   return (
-    <div className="w-[300px] pr-6">
-      <Accordion selectionMode="multiple">
-        <AccordionItem key="1" aria-label="Accordion 1" title="Collection">
+    <div className="w-[300px] pr-6 ">
+      <Accordion
+        selectionMode="multiple"
+        itemClasses={itemClasses}
+        defaultExpandedKeys={["1", "2"]}
+      >
+        <AccordionItem
+          key="1"
+          aria-label="Accordion 1"
+          title="Collection"
+          style={{
+            fontSize: "12px",
+          }}
+          className=" cursor-pointer text-xs"
+        >
           {defaultContent}
         </AccordionItem>
         <AccordionItem key="2" aria-label="Accordion 2" title="Filters">

@@ -8,6 +8,7 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
+import { myFont } from "app/layout"
 
 export default function CategoryTemplate({
   category,
@@ -51,6 +52,7 @@ export default function CategoryTemplate({
                   className="mr-4 hover:text-black"
                   href={`/categories/${parent.handle}`}
                   data-testid="sort-by-link"
+                  font={myFont}
                 >
                   {parent.name}
                 </LocalizedClientLink>
@@ -65,7 +67,7 @@ export default function CategoryTemplate({
           </div>
         )}
         {category.category_children && (
-          <div className="mb-8 text-base-large">
+          <div className="mb-6 text-base-large">
             <ul className="grid grid-cols-1 gap-2">
               {category.category_children?.map((c) => (
                 <li key={c.id}>

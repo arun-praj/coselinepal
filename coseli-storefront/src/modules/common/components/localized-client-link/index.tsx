@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useParams, usePathname } from "next/navigation"
 import React from "react"
 import { clx } from "@medusajs/ui"
+import { myFont } from "app/layout"
 
 /**
  * Use this component to create a Next.js `<Link />` that persists the current country code in the url,
@@ -29,12 +30,16 @@ const LocalizedClientLink = ({
         <Link
           href={`/${countryCode}${href}`}
           {...props}
-          className={props.className + " font-semibold"}
+          className={clx(props.className, " font-semibold", props.className)}
         >
           {children}
         </Link>
       ) : (
-        <Link href={`/${countryCode}${href}`} {...props}>
+        <Link
+          href={`/${countryCode}${href}`}
+          {...props}
+          className={props.className}
+        >
           {children}
         </Link>
       )}
