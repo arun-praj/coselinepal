@@ -15,9 +15,9 @@ export default async function Footer() {
   const productCategories = await listCategories()
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="border-t border-ui-border-base w-full mt-4">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-24">
+        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-12">
           <div>
             <LocalizedClientLink
               href="/"

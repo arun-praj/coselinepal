@@ -1,6 +1,8 @@
 import { listProducts } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
+import { myFont } from "app/layout"
+import { clx } from "@medusajs/ui"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import ProductPreview from "@modules/products/components/product-preview"
@@ -35,14 +37,17 @@ export default async function ProductRail({
   //   }
 
   return (
-    <div className="content-container py-12 small:py-8">
-      <div className="flex justify-between mb-8">
-        <Text className="txt-xlarge">{collection.title}</Text>
+    <div className="content-container py-4 small:py-8">
+      <div className="flex justify-between mb-4">
+        <Text className={clx("txt-xlarge", myFont.className)}>
+          {collection.title}
+        </Text>
+        <Text></Text>
         <InteractiveLink href={`/collections/${collection.handle}`}>
           View all
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-6 gap-y-20 small:gap-y-20">
+      <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-6 gap-y-6 small:gap-y-20">
         {pricedProducts &&
           pricedProducts.map((product) => (
             <li key={product.id}>

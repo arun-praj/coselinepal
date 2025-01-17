@@ -48,11 +48,16 @@ export default async function ProductPreview({
             "flex flex-col lg:flex-row txt-compact-medium mt-4 justify-between"
           )}
         >
-          <Text className={"text-ui-fg-subtle"} data-testid="product-title">
+          <Text
+            className={clx("text-ui-fg-subtle", myFont.className)}
+            data-testid="product-title"
+          >
             {product.title}
           </Text>
-          <div className="flex items-center gap-x-2">
-            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+          <div className={clx("flex items-center gap-x-2", myFont.className)}>
+            {cheapestPrice && (
+              <PreviewPrice price={cheapestPrice} font={myFont} />
+            )}
           </div>
         </div>
       </div>
