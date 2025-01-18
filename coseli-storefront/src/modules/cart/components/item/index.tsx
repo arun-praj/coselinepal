@@ -45,7 +45,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
   const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
 
   return (
-    <Table.Row className="w-full" data-testid="product-row">
+    <Table.Row className="w-full font-[myfont]" data-testid="product-row">
       <Table.Cell className="!pl-0 p-4 w-24">
         <LocalizedClientLink
           href={`/products/${item.product_handle}`}
@@ -62,10 +62,10 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
         </LocalizedClientLink>
       </Table.Cell>
 
-      <Table.Cell className="text-left">
+      <Table.Cell className="text-left pr-1">
         <Text
-          className="txt-medium-plus text-ui-fg-base"
-          data-testid="product-title"
+          className="txt-medium-plus text-ui-fg-base font-[myfont]"
+          data-testid="product-title "
         >
           {item.product_title}
         </Text>
@@ -73,8 +73,8 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
       </Table.Cell>
 
       {type === "full" && (
-        <Table.Cell>
-          <div className="flex gap-2 items-center w-28">
+        <Table.Cell className="!pr-0">
+          <div className="flex gap-2 items-center w-28 font-[myfont]">
             <DeleteButton id={item.id} data-testid="product-delete-button" />
             <CartItemSelect
               value={item.quantity}
