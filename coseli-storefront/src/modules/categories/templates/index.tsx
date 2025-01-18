@@ -7,10 +7,12 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { listCategories } from "@lib/data/categories"
+import { listCollections } from "@lib/data/collections"
 import { HttpTypes } from "@medusajs/types"
 import { myFont } from "app/layout"
 
-export default function CategoryTemplate({
+export default async function CategoryTemplate({
   category,
   sortBy,
   page,
@@ -37,12 +39,24 @@ export default function CategoryTemplate({
 
   getParents(category)
 
+  const { collections } = await listCollections({
+    fields: "*products,*products.categories",
+  })
+  const productCategories = await listCategories({
+    include_descendants_tree: true,
+  })
+
   return (
     <div
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
-      <RefinementList sortBy={sort} data-testid="sort-by-container" />
+      <RefinementList
+        sortBy={sort}
+        data-testid="sort-by-container"
+        collections={collections}
+        categories={productCategories}
+      />
       <div className="w-full">
         <div className="flex flex-row mb-0 text-2xl-semi gap-4">
           {parents &&
