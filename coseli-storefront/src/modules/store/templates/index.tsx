@@ -8,6 +8,8 @@ import { listCollections } from "@lib/data/collections"
 
 import PaginatedProducts from "./paginated-products"
 
+import { FilterDrawer } from "../components/FilterDrawer"
+
 const StoreTemplate = async ({
   sortBy,
   page,
@@ -25,17 +27,32 @@ const StoreTemplate = async ({
   const productCategories = await listCategories({
     include_descendants_tree: true,
   })
+
   return (
     <div
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
-      <RefinementList
-        sortBy={sort}
-        data-testid="sort-by-container"
-        collections={collections}
-        categories={productCategories}
-      />
+      <div className="hidden lg:block">
+        <RefinementList
+          sortBy={sort}
+          data-testid="sort-by-container"
+          collections={collections}
+          categories={productCategories}
+        />
+      </div>
+
+      <div className="block lg:hidden text-right">
+        <FilterDrawer>
+          <RefinementList
+            sortBy={sort}
+            data-testid="sort-by-container"
+            collections={collections}
+            categories={productCategories}
+            mobile={true}
+          />
+        </FilterDrawer>
+      </div>
       <div className="w-full">
         <div className="mb-4 sm:mb-8 text-2xl-semi">
           <h1 data-testid="store-page-title">All products</h1>

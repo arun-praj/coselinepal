@@ -15,6 +15,7 @@ type RefinementListProps = {
   search?: boolean
   categories?: any
   collections?: any
+  mobile?: boolean
   "data-testid"?: string
 }
 
@@ -22,6 +23,7 @@ const RefinementList = ({
   sortBy,
   categories,
   collections,
+  mobile = false,
   "data-testid": dataTestId,
 }: RefinementListProps) => {
   const router = useRouter()
@@ -68,10 +70,14 @@ const RefinementList = ({
     indicator: "text-medium font-bold",
     content: "text-small px-0",
   }
-  console.log(categories, collections)
 
   return (
-    <div className="w-[250px] pr-6 hidden sm:block">
+    <div
+      className={clx("w-[250px] ", {
+        "w-full": mobile,
+        "pr-6": mobile == false,
+      })}
+    >
       <Accordion
         selectionMode="multiple"
         itemClasses={itemClasses}
