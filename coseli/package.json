@@ -17,7 +17,7 @@
     "seed": "medusa exec ./src/scripts/seed.ts",
     "start": "medusa start -p 9000",
     "dev": "medusa develop",
-    "server":"cp .env ./.medusa/server/.env && cd .medusa/server && npm run predeploy && npm run build && npm run start",
+    "server":"npm run build && cp .env ./.medusa/server/.env && cd .medusa/server && npm run predeploy && npm run start",
     "db:create": "medusa db:create",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
