@@ -7,6 +7,8 @@ import {
 	ProviderWebhookPayload,
 	UpdatePaymentProviderSession,
 	WebhookActionResult,
+	PaymentProviderContext,
+	PaymentMethodResponse,
 } from "@medusajs/framework/types";
 import { MedusaError } from "@medusajs/framework/utils";
 
@@ -246,6 +248,27 @@ class KhaltiPaymentProviderService extends AbstractPaymentProvider<Options> {
 				code: "unknown",
 				detail: e,
 			};
+		}
+	}
+
+	async listPaymentMethods(
+		context: PaymentProviderContext
+	): Promise<PaymentMethodResponse[]> {
+		try {
+			const a = "asdf";
+			return [
+				{
+					id: "",
+					data: {},
+				},
+			];
+		} catch (e) {
+			return [
+				{
+					id: e,
+					data: {},
+				},
+			];
 		}
 	}
 	getWebhookActionAndData(
