@@ -13,7 +13,7 @@ const CartTemplate = ({
   customer: HttpTypes.StoreCustomer | null
 }) => {
   return (
-    <div className="py-12 font-[myfont]">
+    <div className="pt-6 pb-8 font-[myfont]">
       <div
         className="content-container font-[myfont]"
         data-testid="cart-container"

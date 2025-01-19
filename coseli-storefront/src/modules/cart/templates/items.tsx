@@ -18,7 +18,29 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
           Cart
         </Heading>
       </div>
-      <Table>
+
+      {/* Mobile View */}
+      <div className="flex flex-col gap-8 w-full lg:hidden ">
+        {items
+          ? items
+              .sort((a, b) => {
+                return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
+              })
+              .map((item) => {
+                return (
+                  <Item
+                    key={item.id}
+                    item={item}
+                    type="mobile"
+                    currencyCode={cart?.currency_code}
+                  />
+                )
+              })
+          : repeat(5).map((i) => {
+              return <SkeletonLineItem key={i} />
+            })}
+      </div>
+      <Table className="hidden lg:block">
         <Table.Header className="border-t-0 font-[myfont]">
           <Table.Row className="text-ui-fg-subtle txt-medium-plus font-[myfont]">
             <Table.HeaderCell className="!pl-0 font-[myfont]">
@@ -47,6 +69,7 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
                     <Item
                       key={item.id}
                       item={item}
+                      type="full"
                       currencyCode={cart?.currency_code}
                     />
                   )

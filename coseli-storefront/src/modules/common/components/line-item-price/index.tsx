@@ -20,9 +20,11 @@ const LineItemPrice = ({
     (acc, adjustment) => adjustment.amount + acc,
     0
   )
+  console.log(item)
 
   const originalPrice = original_total
-  const currentPrice = total - adjustmentsSum
+  const currentPrice = original_total - adjustmentsSum
+
   const hasReducedPrice = currentPrice < originalPrice
 
   return (
