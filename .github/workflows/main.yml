@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - 'frontend/**'
-      - 'backend/**'
+      - 'coseli-storefront/**'
+      - 'coseli/**'
   workflow_dispatch:  # Allows manual trigger
 
 
