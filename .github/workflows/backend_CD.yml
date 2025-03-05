@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd /home/coseli/coselinepal/coseli
-          npm install
+          yarn install
 
       - name: Build Backend
         run: |
