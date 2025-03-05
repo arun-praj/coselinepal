@@ -6,34 +6,11 @@ on:
     branches:
       - main
     paths:
-      - 'coseli-storefront/**'
       - 'coseli/**'
   workflow_dispatch:  # Allows manual trigger
 
 
 jobs:
-  deploy-frontend:
-    if: contains(github.event.head_commit.modified, 'coseli-storefront/')
-    runs-on: coseli-runner
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install frontend dependencies
-        run: |
-          cd coseli-storefront
-          npm install
-
-      - name: Build frontend
-        run: |
-          cd colsei-storefront
-          npm run build
-
-      - name: Restart frontend server
-        run: |
-          pm2 stop coseli-storefront || true  # Stop if running
-          pm2 start npm --name "coseli-storefront" -- run start
-
   deploy-backend:
     if: contains(github.event.head_commit.modified, 'coseli/')
     runs-on: coseli-runner

@@ -1,0 +1,37 @@
+name: Deploy frontend to Local Server
+
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'coseli-storefront/**'
+  workflow_dispatch:  # Allows manual trigger
+
+
+jobs:
+  deploy-frontend:
+    runs-on: coseli-runner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print working directoru
+        run: |
+          echo "Working directory: $PWD"
+
+      - name: Install frontend dependencies
+        run: |
+          cd coseli-storefront
+          npm install
+
+      - name: Build frontend
+        run: |
+          cd colsei-storefront
+          npm run build
+
+      - name: Restart frontend server
+        run: |
+          pm2 stop coseli-storefront || true  # Stop if running
+          pm2 start npm --name "coseli-storefront" -- run start
