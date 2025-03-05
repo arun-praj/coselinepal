@@ -1,12 +1,15 @@
 name: Deploy to Local Server
 
+
 on:
   push:
     branches:
       - main
     paths:
-      - 'coseli/**'  # Trigger when changes occur in the frontend folder
-      - 'coseli-storefront/**'   # Trigger when changes occur in the backend folder
+      - 'frontend/**'
+      - 'backend/**'
+  workflow_dispatch:  # Allows manual trigger
+
 
 jobs:
   deploy-frontend:
