@@ -12,7 +12,7 @@ on:
 
 jobs:
   deploy-frontend:
-    runs-on: coseli-runner
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
