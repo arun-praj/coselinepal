@@ -1,0 +1,53 @@
+name: Deploy to Local Server
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'coseli/**'  # Trigger when changes occur in the frontend folder
+      - 'coseli-storefront/**'   # Trigger when changes occur in the backend folder
+
+jobs:
+  deploy-frontend:
+    if: contains(github.event.head_commit.modified, 'coseli-storefront/')
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install frontend dependencies
+        run: |
+          cd coseli-storefront
+          npm install
+
+      - name: Build frontend
+        run: |
+          cd colsei-storefront
+          npm run build
+
+      - name: Restart frontend server
+        run: |
+          pm2 stop coseli-storefront || true  # Stop if running
+          pm2 start npm --name "coseli-storefront" -- run start
+
+  deploy-backend:
+    if: contains(github.event.head_commit.modified, 'coseli/')
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install backend dependencies
+        run: |
+          cd coseli
+          npm install
+      - name: Build backend
+        run: |
+          cd coseli
+          npm run server
+      - name: Restart backend server
+        run: |
+          pm2 stop caseli-backend || true  # Stop if running
+          pm2 start npm --name "coseli-backend" -- run start
+
