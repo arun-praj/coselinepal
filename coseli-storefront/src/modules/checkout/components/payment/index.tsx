@@ -91,7 +91,6 @@ const Payment = ({
       const shouldInputCard =
         isStripeFunc(selectedPaymentMethod) && !activeSession
 
-      console.log("cartt", cart)
 
       //   if (!activeSession) {
       await initiatePaymentSession(cart, {

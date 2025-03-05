@@ -27,7 +27,6 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     (cart.shipping_methods?.length ?? 0) < 1
 
   const paymentSession = cart.payment_collection?.payment_sessions?.[0]
-  console.log(paymentSession)
 
   switch (true) {
     case isStripe(paymentSession?.provider_id):
@@ -212,7 +211,6 @@ const KhaltiPaymentButton = ({ notReady }: { notReady: boolean }) => {
   }
   const redirectToKhalti = async () => {
     const cart = await retrieveCart()
-    console.log(cart)
 
     const paymentUrl = cart?.payment_collection?.payment_sessions?.[0]?.data
       ?.payment_url as string | undefined

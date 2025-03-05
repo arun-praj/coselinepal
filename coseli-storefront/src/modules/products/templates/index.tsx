@@ -55,7 +55,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <Breadcrumb product={product} />
         </div>
         <ProductImage product={product} />
-        {/* {console.log(product)} */}
 
         {/* <div className=" block w-[10%] relative ">
           <ImageThumbnail images={product?.images || []} />
