@@ -14,24 +14,19 @@ jobs:
   deploy-frontend:
     runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Print working directoru
+      - name: Install dependencies
         run: |
-          echo "Working directory: $PWD"
-
-      - name: Install frontend dependencies
-        run: |
-          cd coseli-storefront
+          cd /home/coseli/coselinepal/coseli-storefront
           npm install
+
 
       - name: Build frontend
         run: |
-          cd colsei-storefront
+          cd /home/coseli/coselinepal/coseli-storefront
           npm run build
 
       - name: Restart frontend server
         run: |
+          cd /home/coseli/coselinepal/coseli-storefront
           pm2 stop coseli-storefront || true  # Stop if running
           pm2 start npm --name "coseli-storefront" -- run start
