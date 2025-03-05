@@ -12,22 +12,20 @@ on:
 
 jobs:
   deploy-backend:
-    if: contains(github.event.head_commit.modified, 'coseli/')
     runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install backend dependencies
+      - name: Install dependencies
         run: |
-          cd coseli
+          cd /home/coseli/coselinepal/coseli
           npm install
-      - name: Build backend
-        run: |
-          cd coseli
-          npm run server
-      - name: Restart backend server
-        run: |
-          pm2 stop caseli-backend || true  # Stop if running
-          pm2 start npm --name "coseli-backend" -- run start
 
+      - name: Build Backend
+        run: |
+          cd /home/coseli/coselinepal/coseli
+          npm run server
+
+      - name: Restart frontend server
+        run: |
+          cd /home/coseli/coselinepal/coseli
+          pm2 stop coseli-backend || true
+          pm2 start npm --name "coseli-backend" -- run start
