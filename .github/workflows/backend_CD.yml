@@ -1,4 +1,4 @@
-name: Deploy to Local Server
+name: Deploy backend to Local Server
 
 
 on:

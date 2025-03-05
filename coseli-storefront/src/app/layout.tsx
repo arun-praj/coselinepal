@@ -9,6 +9,7 @@ import {
 } from "@mantine/core"
 import { Head } from "next/document"
 
+//test 2
 import localFont from "next/font/local"
 
 export const myFont = localFont({
