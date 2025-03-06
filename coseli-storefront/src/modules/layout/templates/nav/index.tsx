@@ -16,9 +16,9 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-20  mx-auto border-b duration-200 bg-white border-ui-border-base">
+      <header className="relative  h-20 md:h-auto   md:pt-3 md:pb-1  mx-auto border-b duration-200 bg-white border-ui-border-base">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex items-center h-full">
+          <div className="flex items-center h-full md:hidden">
             <LocalizedClientLink
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
@@ -35,7 +35,22 @@ export default async function Nav() {
           </div>
 
           {/* Category */}
-          <div className="hidden md:flex flex-1 basis-0 justify-center items-center">
+          <div className="hidden md:flex flex-1 basis-0 justify-center items-center flex-col">
+            <div>
+              <LocalizedClientLink
+                href="/"
+                className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+                data-testid="nav-store-link"
+              >
+                <Image
+                  src={"/logo.png"}
+                  className="pointer-events-none	"
+                  alt={"Website logo"}
+                  height={"71"}
+                  width={"160"}
+                />
+              </LocalizedClientLink>
+            </div>
             {productCategories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <ul
@@ -56,7 +71,7 @@ export default async function Nav() {
 
                     return (
                       <li
-                        className="flex flex-col gap-4 text-ui-fg-subtle text-base lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900"
+                        className="flex flex-col  text-ui-fg-subtle text-base lg:px-3  items-center text-gray-600 hover:text-gray-900 capitalize"
                         key={c.id}
                       >
                         <LocalizedClientLink
@@ -64,7 +79,7 @@ export default async function Nav() {
                             "hover:text-ui-fg-base ",
                             myFont.className,
                             children &&
-                              " md:px-6 py-2 items-center text-gray-900 hover:text-gray-950 text-md mt-4"
+                            " md:px-6 py-2 items-center text-gray-900 hover:text-gray-950  font-normal text-sm mt-4 uppercase "
                           )}
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
@@ -77,7 +92,7 @@ export default async function Nav() {
                               children.map((child) => (
                                 <li key={child.id}>
                                   <LocalizedClientLink
-                                    className="hover:text-ui-fg-base lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900"
+                                    className="hover:text-ui-fg-base lg:px-3 pb-0  items-center text-gray-600 hover:text-gray-900"
                                     href={`/categories/${child.handle}`}
                                     data-testid="category-link"
                                   >
@@ -95,7 +110,59 @@ export default async function Nav() {
             )}
           </div>
 
-          <div className="flex items-center gap-x-8 sm:gap-x-10 h-full  basis-0 justify-end">
+          {/* right items - mobile */}
+          <div className="flex md:hidden items-center gap-x-8 sm:gap-x-10 h-full  basis-0 justify-end">
+            <div className="hidden small:flex items-center gap-x-6 h-full">
+              <LocalizedClientLink
+                className="hover:text-ui-fg-base"
+                href="/account"
+                data-testid="nav-account-link"
+              >
+                <svg
+                  width="23"
+                  height="23"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 23C1 17.477 5.477 13 11 13H13C18.523 13 23 17.477 23 23"
+                    stroke="#111111"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                    strokeLinecap="square"
+                  ></path>
+                  <path
+                    d="M12 13C15.3137 13 18 10.3137 18 7C18 3.68629 15.3137 1 12 1C8.68629 1 6 3.68629 6 7C6 10.3137 8.68629 13 12 13Z"
+                    stroke="#111111"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                    strokeLinecap="square"
+                  ></path>
+                </svg>
+              </LocalizedClientLink>
+            </div>
+            <Suspense
+              fallback={
+                <LocalizedClientLink
+                  className="hover:text-ui-fg-base flex gap-2"
+                  href="/cart"
+                  data-testid="nav-cart-link"
+                >
+                  Cart (0)
+                </LocalizedClientLink>
+              }
+            >
+              <CartButton />
+            </Suspense>
+            <div className=" basis-0 h-full items-center">
+              <div className="h-full">
+                <SideMenu regions={regions} />
+              </div>
+            </div>
+          </div>
+              {/* right items - desktop */}
+          <div className="hidden md:flex absolute right-4 top-[-28px] items-center gap-x-3 sm:gap-x-6 h-full  basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
               <LocalizedClientLink
                 className="hover:text-ui-fg-base"

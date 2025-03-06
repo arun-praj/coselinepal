@@ -1,11 +1,7 @@
 import { clx, Text } from "@medusajs/ui"
-import { listProducts } from "@lib/data/products"
-import { getProductPrice } from "@lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
-import PreviewPrice from "./price"
-import { Transition } from "@headlessui/react"
 import { myFont } from "app/layout"
 
 export default async function ProductPreview({
@@ -26,9 +22,9 @@ export default async function ProductPreview({
   //   return null
   // }
 
-  const { cheapestPrice } = getProductPrice({
-    product,
-  })
+  // const { cheapestPrice } = getProductPrice({
+  //   product,
+  // })
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
@@ -54,11 +50,11 @@ export default async function ProductPreview({
           >
             {product.title}
           </Text>
-          <div className={clx("flex items-center gap-x-2", myFont.className)}>
+          {/* <div className={clx("flex items-center gap-x-2", myFont.className)}>
             {cheapestPrice && (
               <PreviewPrice price={cheapestPrice} font={myFont} />
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </LocalizedClientLink>

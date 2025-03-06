@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { myFont, oswald } from "app/layout"
+import { clx } from "@medusajs/ui"
 
 const Hero = () => {
   return (
@@ -30,7 +32,8 @@ const Hero = () => {
       )} */}
 
       {/* Content Overlay */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center md:items-start text-center p-6 sm:p-12 lg:p-24 gap-6 bg-black text-white bg-opacity-50">
+      <div className={
+        clx("absolute inset-0 z-10  oswald flex flex-col justify-center items-center md:items-start text-center p-6 sm:p-12 lg:p-24 gap-6 bg-black text-white bg-opacity-50",oswald.className)}>
         <h1
           className="text-3xl sm:text-5xl font-bold mb-4"
           style={{

@@ -1,6 +1,7 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import "styles/globals.css"
+import 'swiper/css';
 import "@mantine/core/styles.css"
 import {
   ColorSchemeScript,
@@ -11,6 +12,12 @@ import { Head } from "next/document"
 
 //test 2
 import localFont from "next/font/local"
+import {Oswald} from "next/font/google"
+
+export const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700']
+})
 
 export const myFont = localFont({
   src: [
@@ -57,7 +64,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html
       lang="en"
       data-mode="light"
-      className={myFont.className}
+      className={myFont.className + " " + oswald.className}
       {...mantineHtmlProps}
     >
       <head>

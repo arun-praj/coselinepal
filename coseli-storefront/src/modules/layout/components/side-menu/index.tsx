@@ -67,7 +67,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                 leaveTo="opacity-0"
               >
                 <PopoverPanel
-                  className="[--anchor-gap:-35px] 2xl:[--anchor-gap:-100px] 3xl:[--anchor-gap:-180px] flex flex-col absolute w-full  sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-50 inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl"
+                  className="[--anchor-gap:-35px] 2xl:[--anchor-gap:-20px] 3xl:[--anchor-gap:-180px] flex flex-col absolute w-full  sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-50 inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl"
                   anchor={{ to: "right start" }}
                 >
                   <div
