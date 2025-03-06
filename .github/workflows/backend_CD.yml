@@ -23,9 +23,10 @@ jobs:
         run: |
           cd /home/coseli/coselinepal/coseli
           npm run build
+
       - name: Copy env file
         run: |
-          cp /home/coseli/coselinepal/coseli/.env /home/coseli/coselinepal/coseli/.medusa/server/.env
+          cp /home/coseli/coselinepal/coseli/.env.production /home/coseli/coselinepal/coseli/.medusa/server/.env
       
       - name: Install dependencies
         run: |
