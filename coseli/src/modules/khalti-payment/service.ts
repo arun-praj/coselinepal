@@ -166,7 +166,6 @@ class KhaltiPaymentProviderService extends AbstractPaymentProvider<Options> {
 			if (status === "captured") {
 				// I want to store the transation id as well
 				const res = await this.client.getStatus(paymentData.id);
-				console.error("hehehehehehe", res.json());
 			}
 
 			return {
