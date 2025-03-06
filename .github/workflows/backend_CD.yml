@@ -22,10 +22,18 @@ jobs:
       - name: Build Backend
         run: |
           cd /home/coseli/coselinepal/coseli
-          npm run server
+          npm run build
+      - name: Copy env file
+        run: |
+          cp /home/coseli/coselinepal/coseli/.env /home/coseli/coselinepal/coseli/.medusa/server/.env
+      
+      - name: Install dependencies
+        run: |
+          cd /home/coseli/coselinepal/coseli/.medusa/server
+          yarn install
 
       - name: Restart frontend server
         run: |
-          cd /home/coseli/coselinepal/coseli
+          cd /home/coseli/coselinepal/coseli/.medusa/server
           pm2 stop coseli-backend || true
           pm2 start npm --name "coseli-backend" -- run start
