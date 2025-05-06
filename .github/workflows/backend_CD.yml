@@ -16,9 +16,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          export PATH="$PATH:/home/coseli/.yarn/bin"
           cd /home/coseli/coselinepal/coseli
-          yarn install
+          /home/coseli/.nvm/versions/node/v20.18.3/bin/yarn install
 
       - name: Build Backend
         run: |
