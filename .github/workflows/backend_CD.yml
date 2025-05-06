@@ -14,10 +14,14 @@ jobs:
   deploy-backend:
     runs-on: self-hosted
     steps:
+
+      - name: Install global dependencies
+        run: npm install -g yarn
+        
       - name: Install dependencies
         run: |
           cd /home/coseli/coselinepal/coseli
-          /home/coseli/.nvm/versions/node/v20.18.3/bin/yarn install
+          yarn install
 
       - name: Build Backend
         run: |
