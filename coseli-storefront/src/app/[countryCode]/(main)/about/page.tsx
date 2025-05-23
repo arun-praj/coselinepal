@@ -143,27 +143,28 @@ export default async function AboutPage() {
         {/* Header Section */}
         <div
           className="bg-cover bg-center"
-          // style={{ backgroundImage: 'url("/placeholder-image.jpg")' }}
+        // style={{ backgroundImage: 'url("/placeholder-image.jpg")' }}
         >
           {/* <div className="flex flex-col items-start justify-center h-[30vh] px-12 text-black bg-[url('/bg2.png')]"> */}
-          <div className="flex flex-col items-start justify-center h-[30vh]  text-black">
+          <div className="flex flex-col items-center justify-center h-[30vh]  text-black">
             <h1 className="text-4xl font-bold">
-              Our Philosophy Is Simple. You Deserve It All.
-            </h1>
+              ABOUT US            </h1>
+            <p className="text-gray-600 mt-4">
+              Welcome to our home—where passion, tradition, and love for craft come together to create something special. For the past 32 years, we’ve been handcrafting leather shoes with care, focusing on comfort, durability, and the joy that comes with wearing something made just for you. Our journey is one of family, community, and a deep commitment to the people and the planet around us.
+            </p>
           </div>
         </div>
 
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-4">
-          <div className=" flex flex-col  justify-center text-center">
+          <div className=" flex flex-col  justify-center text-left">
             <h2 className="text-2xl font-bold">
-              Comfort, Durability, Versatility & Honest Pricing.
+              Our Heritage: A Family Tradition of Crafting Leather Shoes for 32 Years
             </h2>
             <p className="text-gray-600 mt-2">
-              Comfort, durability, versatility, and honest pricing are the core
-              values that drive our brand. We strive to provide our customers
-              with premium quality products that can withstand the rigors of
-              everyday life.
+              What started as a humble workshop has grown into something much more than a business—it’s a family tradition. For over three decades, we’ve been perfecting the art of crafting leather shoes, always with one thing in mind: making shoes that feel like they were made just for you.
+              Each pair we create carries the essence of our journey. Our team of artisans has been with us for many years, and they take great pride in their work—stitching, shaping, and refining every detail with love and care. It’s not just about making shoes; it’s about creating something that lasts, something that tells a story and becomes part of your life. When you slip into a pair of our shoes, you’re not just wearing a product—you’re wearing a piece of our heart.
+
             </p>
           </div>
           <div className="relative w-full aspect-square">
@@ -190,30 +191,32 @@ export default async function AboutPage() {
                 style={{ objectFit: "cover" }}
               ></video>
             </div>
-            <div className=" flex flex-col  justify-center text-center">
-              <h2 className="text-2xl font-bold mb-4">Commitment to Quality</h2>
+            <div className=" flex flex-col  justify-center text-left">
+              <h2 className="text-2xl font-bold mb-4">Empowering Women: Giving Jobs, Building Futures
+              </h2>
 
               <p className="text-gray-600">
-                We are dedicated to providing our customers with the highest
-                quality products. Our team works tirelessly to ensure that every
-                pair of shoes meets our stringent standards for durability,
-                comfort, and style.
+                For us, business is about more than just shoes; it’s about making a real difference in the lives of the people who work with us. We believe in creating job opportunities that provide more than just a paycheck—they offer dignity, independence, and a chance for women to flourish.
+                Over the years, we’ve had the honor of creating many job opportunities for women, especially those who need it most. By offering fair wages, a safe working environment, and the chance to learn and grow, we’ve helped women build careers that empower them and their families. Many of our talented artisans have been with us for years, and together, we’ve created a workplace that feels like a family—a place where everyone supports one another, and everyone has a voice.
+
               </p>
             </div>
           </div>
         </div>
 
         {/* Partners Section */}
-        <div className="px-12 py-8 bg-opacity-60">
+        <div className="px-4 py-4 bg-opacity-60">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className=" flex flex-col  justify-center text-center">
-              <h2 className="text-2xl font-bold mb-4">World-Class Partners</h2>
+            <div className=" flex flex-col  justify-center text-left">
+              <h2 className="text-2xl font-bold mb-4">Sustainability: Crafting with Care for a Greener Tomorrow
+              </h2>
 
               <p className="text-gray-600">
-                We have carefully selected our partners to ensure that they
-                share our commitment to quality and customer satisfaction.
-                Together, we work to deliver the best possible products and
-                services to our customers.
+                We’ve always believed that the best things in life are the ones that last. That’s why sustainability is at the heart of everything we do. From the leathers we choose to the way we run our factory, we’re committed to doing things the right way—caring for the earth while we create something beautiful and lasting.
+                We work closely with suppliers who share our commitment to sustainable practices. Our leathers are sourced responsibly, and we take extra steps to ensure every piece is made with the least impact on the planet. It’s not just about making shoes that last; it’s about making shoes that leave a positive mark on the world.
+
+                Thank you for being part of our story. Each pair of shoes we make is a part of a larger journey—one filled with love, care, and a dedication to making the world a better place, one step at a time.
+
               </p>
             </div>
             <div className="flex flex-col relative items-center justify-center h-[500px]">
@@ -244,14 +247,11 @@ export default async function AboutPage() {
                 style={{ objectFit: "cover" }}
               ></video>
             </div>
-            <div className=" flex flex-col  justify-center text-center">
-              <h2 className="text-2xl font-bold mb-4">A Better Experience</h2>
+            <div className=" flex flex-col  justify-center text-left">
+              <h2 className="text-2xl font-bold mb-4">Coseli story</h2>
 
               <p className="text-gray-600">
-                We are committed to providing our customers with a better
-                experience, from the moment they step into our store to the day
-                they receive their order. Our team is dedicated to ensuring that
-                every interaction is seamless and satisfying.
+                At Coseli, we don’t just make shoes; we craft stories of resilience, quality, and sustainability. As a family-run business, we take pride in offering premium, handcrafted footwear made from recycled leather, ensuring comfort, durability, and a positive impact. Whether you're a retailer, designer, or corporate client, we bring your vision to life with ethical craftsmanship and personalized service. Partner with us and step into a future of style, sustainability, and trust.
               </p>
             </div>
           </div>
